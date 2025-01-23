@@ -65,15 +65,15 @@ function App() {
     taxIdName : "ABN"
   })
 
-  const countryBusinessNumbers = [
-    { value: "EIN", label: "United States (EIN)" },
-    { value: "BN", label: "Canada (BN)" },
-    { value: "VAT", label: "United Kingdom (VAT)" },
-    { value: "ABN", label: "Australia (ABN)" },
-    { value: "GSTIN", label: "India (GSTIN)" },
-    { value: "VAT", label: "Germany (VAT)" },
-    { value: "SIRET", label: "France (SIRET)" },
-  ];
+  // const countryBusinessNumbers = [
+  //   { value: "EIN", label: "United States (EIN)" },
+  //   { value: "BN", label: "Canada (BN)" },
+  //   { value: "VAT", label: "United Kingdom (VAT)" },
+  //   { value: "ABN", label: "Australia (ABN)" },
+  //   { value: "GSTIN", label: "India (GSTIN)" },
+  //   { value: "VAT", label: "Germany (VAT)" },
+  //   { value: "SIRET", label: "France (SIRET)" },
+  // ];
   
   const [row, setRow] = useState<TabelRow>({description : '', HSN : "", price : "", qty : 0, unit : "", total : 0, id : 0});
 
