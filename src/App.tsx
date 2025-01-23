@@ -91,7 +91,7 @@ function App() {
     const imgWidth = 210; // A4 width in mm
     const imgHeight = (canvas.height * imgWidth) / canvas.width; // Adjust for aspect ratio
     pdf.addImage(image, "PNG", 0, 0, imgWidth, imgHeight);
-    pdf.save("document.pdf");
+    pdf.save(`${postInputs.customer_name ? postInputs.customer_name + "-austraisian" : "blank-austrasian"}.pdf`);
   };
 
   const handleToggleButton = () => {
@@ -104,16 +104,16 @@ function App() {
     <div className="justify-center p-4 gap-3 flex items-center">
                     <button
                     onClick={handleToggleButton}
-                    className="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"
+                    className="mt-4 bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-900 transition"
                     >
-                    Cancel
+                    Go to Download
                     </button>
-                    <button
+                    {/* <button
                     onClick={() => {}}
                     className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
                     >
                     Submit
-                    </button>
+                    </button> */}
             </div>
     <div id="pdf-content" className={`text-black px-2 md:px-40 py-8`}>
           <div className="md:justify-between md:flex">
