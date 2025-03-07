@@ -146,7 +146,7 @@ function App() {
               </div>
           </div>
 
-          <div className="p-4 grid grid-cols-2">
+          <div className="p-4 grid grid-cols-2 text-lg">
               <div>
 
               </div>
@@ -289,7 +289,7 @@ function App() {
               </div>
           </div>
 
-          <div className="p-4 grid grid-cols-2">
+          <div className="p-4 grid grid-cols-2 text-lg">
               <div>
 
               </div>

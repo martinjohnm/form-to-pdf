@@ -10,8 +10,8 @@ export const BankInfoComponent = () => {
 
     return <div className="">
         <p className="text-xl font-semibold underline py-2">{"Bank Details"}</p>
-        <Field title={"BSB"} value={bankInfo.bank_bsb}/>
         <Field title={"Acc Name"} value={bankInfo.bank_ac_name}/>
+        <Field title={"BSB"} value={bankInfo.bank_bsb}/>
         <Field title={"Acc Number"} value={bankInfo.bank_ac_number}/>
     </div>
 }
