@@ -19,7 +19,7 @@ export const TableSingleRowEdit = () => {
             hsn : 0,
             price : 0,
             quantity : 0,
-            unit : 0,
+            unit : "",
             subtotal : 0
         }
     )
@@ -90,10 +90,10 @@ export const TableSingleRowEdit = () => {
                     }} className="w-full outline-none bg-slate-200 p-2" placeholder="Quantity" ></input>
                   </div>
                   <div className="text-black col-span-2 p-1">
-                    <input type="number" defaultValue={tableRow.unit} onChange={(e : React.ChangeEvent<HTMLInputElement>) => {
+                    <input type="text" defaultValue={tableRow.unit} onChange={(e : React.ChangeEvent<HTMLInputElement>) => {
                         setTableRow((tableRow) => ({
                             ...tableRow,
-                            unit : Number(e.target.value)
+                            unit : String(e.target.value)
                         }))
                     }} className="w-full outline-none bg-slate-200 p-2" placeholder="Unit" ></input>
                   </div>

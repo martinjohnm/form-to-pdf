@@ -40,7 +40,7 @@ export type TableRowType =   {
     hsn : number,
     price: number,
     quantity : number,
-    unit : number,
+    unit : string,
     subtotal : number
   };
 
@@ -50,7 +50,7 @@ export type SinglTableRowType =   {
     hsn : number,
     price: number,
     quantity : number,
-    unit : number,
+    unit : string,
     subtotal : number
 };
 

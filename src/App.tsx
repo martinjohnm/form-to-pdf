@@ -45,7 +45,6 @@ function App() {
 
   if (toggleOpen) {
     return  <div className={`${toggleOpen ? "block" : "hidden"}`}>
-    {/* <ToggleWindow onclose={handleToggleButton} onsubmit={() => {}}/> */}
     <div className="justify-center p-4 gap-3 flex items-center">
                     <button
                     onClick={handleToggleButton}
@@ -53,20 +52,15 @@ function App() {
                     >
                     Go to Download
                     </button>
-                    {/* <button
-                    onClick={() => {}}
-                    className="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
-                    >
-                    Submit
-                    </button> */}
+             
             </div>
     <div id="pdf-content" className={`text-black px-2 md:px-40 py-8`}>
           <div className="md:justify-between md:flex">
             <div className="w-full">
               <img className="h-36 w-58" src="logo.png" alt="" />
             </div>
-            <div className="w-1/2 font-bold text-md">
-              <div className="flex justify-center items-center font-bold text-xl">
+            <div className="w-1/2 text-md">
+              <div className="flex justify-center items-center font-extrabold text-3xl">
                 Invoice
               </div>
               <InvoiceEditComponent/>
@@ -215,8 +209,8 @@ function App() {
             <div className="w-full">
               <img className="h-36 w-58" src="logo.png" alt="" />
             </div>
-            <div className="w-1/2 font-bold text-md">
-              <div className="flex justify-center items-center font-bold text-xl">
+            <div className="w-1/2 text-md">
+              <div className="flex justify-center items-center font-extrabold text-3xl">
                 Invoice
               </div>
               <InvoiceComponent/>

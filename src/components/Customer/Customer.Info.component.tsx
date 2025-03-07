@@ -22,7 +22,7 @@ const Field = ({title, value} : {title : string, value : string}) => {
     //const setcustomerInfo = useSetRecoilState<InfoType>(customerInfoComponentAtom)
 
     return (
-    <div className="grid grid-cols-12 p-1 items-center justify-center">
+    <div className="grid grid-cols-12 p-1 items-center justify-center text-lg">
         <div className="col-span-2">
             {`${title} :`}
         </div>

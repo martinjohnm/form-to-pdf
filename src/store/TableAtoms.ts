@@ -18,7 +18,7 @@ export const SingleRow = atom<SinglTableRowType>({
         hsn : 0,
         price: 0,
         quantity : 0,
-        unit : 0,
+        unit : "",
         subtotal : 0
     }
 })
