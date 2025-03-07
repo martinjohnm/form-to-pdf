@@ -48,11 +48,11 @@ const Field = ({title, value, type } : {title : string, value : string, type : C
  
   
     return (
-    <div className="grid grid-cols-12 w-3/4 p-1 text-lg">
-        <div className="col-span-2">
+    <div className="grid grid-cols-12 w-3/4 p-1 text-xl">
+        <div className="col-span-3">
             {`${title} :`}
         </div>
-        <input defaultValue={value} onChange={handleChange} className="col-span-10 bg-slate-100 gap-1 outline-none p-1">
+        <input defaultValue={value} onChange={handleChange} className="col-span-9 bg-slate-100 gap-1 outline-none p-1">
             
         </input>
     </div>)

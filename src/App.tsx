@@ -151,7 +151,7 @@ function App() {
 
               </div>
               
-              <div>
+              <div className="text-xl">
                 <div className="justify-between grid grid-cols-3">
                   <div>
                       <p>Total amount</p>
@@ -294,7 +294,7 @@ function App() {
 
               </div>
               
-              <div>
+              <div className="text-xl">
                 <div className="justify-between grid grid-cols-3">
                   <div>
                       <p>Total amount</p>
