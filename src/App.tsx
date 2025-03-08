@@ -160,7 +160,7 @@ function App() {
                     <p>=</p>
                   </div>
                   <div>
-                      <p>{`AU$ ${Number(totalAmount)}`}</p>
+                      <p>{`AU$ ${Number(totalAmount) - shiipingcharge}`}</p>
                   </div>
                 </div>
 
@@ -186,7 +186,8 @@ function App() {
                     <p>=</p>
                   </div>
                   <div>
-                  <p className="font-bold">AU$ {Number(totalAmount) + shiipingcharge}</p>
+                
+                  <p className="font-bold">AU$ {Number(totalAmount)}</p>
 
                       
                   </div>
