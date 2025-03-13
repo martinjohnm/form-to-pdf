@@ -14,15 +14,19 @@ import { ShippingchargeEditComponent } from "./components/Shipping/ShippingCharg
 import { TableView } from "./components/Table/TableView";
 import { TableEdit } from "./components/Table/TableEdit";
 import { TableSingleRowEdit } from "./components/Table/TableSingleRowEdit";
-import { tableState, totalAmountState } from "./store/TableAtoms";
+import { grandTotalAmountState, tableState, totalAmountState } from "./store/TableAtoms";
 import { CustomerInfoAtom } from "./store/CustomerAtoms";
+import { discountAtom } from "./store/discoutAtom";
+import { DiscountEditComponent } from "./components/Discount/discount.edit.component";
 
 function App() {
 
   
   const [_tableData, setTableData] = useRecoilState(tableState);
   const shiipingcharge = useRecoilValue(ShippingChargeAtom)
+  const discount = useRecoilValue(discountAtom)
   const totalAmount = useRecoilValue(totalAmountState)
+  const grandTotal = useRecoilValue(grandTotalAmountState)
   const customer_data = useRecoilValue(CustomerInfoAtom)
 
   const [toggleOpen, setToggleOpen] = useState(false)
@@ -121,7 +125,7 @@ function App() {
                         </div>
 
                         <div className="text-white col-span-2 w-full h-full border-r p-4">
-                          <p>HSN</p>
+                          <p>Type</p>
                         </div>
                         <div className="text-white col-span-2 w-full h-full border-r p-4">
                           <p>Price</p>
@@ -160,7 +164,7 @@ function App() {
                     <p>=</p>
                   </div>
                   <div>
-                      <p>{`AU$ ${Number(totalAmount) - shiipingcharge}`}</p>
+                      <p>{`AU$ ${Number(totalAmount)}`}</p>
                   </div>
                 </div>
 
@@ -179,6 +183,19 @@ function App() {
 
                 <div className="justify-between grid grid-cols-3">
                   <div>
+                      <p>Discount paid</p>
+                  </div>
+                  <div className="justify-center items-center">
+                    <p>=</p>
+                  </div>
+                  <div>
+                      <DiscountEditComponent/>
+
+                  </div>
+                </div>
+
+                <div className="justify-between grid grid-cols-3">
+                  <div>
                       <p className="font-bold">
                         Grand Total</p>
                   </div>
@@ -187,7 +204,7 @@ function App() {
                   </div>
                   <div>
                 
-                  <p className="font-bold">AU$ {Number(totalAmount)}</p>
+                  <p className="font-bold">AU$ {Number(grandTotal)}</p>
 
                       
                   </div>
@@ -266,7 +283,7 @@ function App() {
                         </div>
 
                         <div className="text-white col-span-2 w-full h-full border-r p-4">
-                          <p>HSN</p>
+                          <p>Type</p>
                         </div>
                         <div className="text-white col-span-2 w-full h-full border-r p-4">
                           <p>Price</p>
@@ -322,6 +339,18 @@ function App() {
 
                 <div className="justify-between grid grid-cols-3">
                   <div>
+                      <p>Discount paid</p>
+                  </div>
+                  <div className="justify-center items-center">
+                    <p>=</p>
+                  </div>
+                  <div>
+                      <p>AU$ {discount}</p>
+                  </div>
+                </div>
+
+                <div className="justify-between grid grid-cols-3">
+                  <div>
                       <p className="font-bold">
                         Grand Total</p>
                   </div>
@@ -329,7 +358,7 @@ function App() {
                     <p>=</p>
                   </div>
                   <div>
-                      <p className="font-bold">AU$ {Number(totalAmount) + shiipingcharge}</p>
+                      <p className="font-bold">AU$ {Number(grandTotal)}</p>
                   </div>
                 </div>
                 
