@@ -42,11 +42,21 @@ export const totalAmountState = selector({
     get: ({ get }) => {
         const rows = get(tableState)
         const shipppingCharge = get(ShippingChargeAtom)
-        const discount = get(discountAtom)
 
         return rows.reduce((acc, row) => (
             acc + row.subtotal
-        ), (shipppingCharge-discount))
+        ), (shipppingCharge))
+    }
+  });
+
+
+  export const balanceAmountState = selector({
+    key: "balanceAmountState",
+    get: ({ get }) => {
+        const grandTotalAmount = get(grandTotalAmountState)
+        const discount = get(discountAtom)
+
+        return grandTotalAmount - discount
     }
   });
 

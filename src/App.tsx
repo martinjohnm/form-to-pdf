@@ -14,7 +14,7 @@ import { ShippingchargeEditComponent } from "./components/Shipping/ShippingCharg
 import { TableView } from "./components/Table/TableView";
 import { TableEdit } from "./components/Table/TableEdit";
 import { TableSingleRowEdit } from "./components/Table/TableSingleRowEdit";
-import { grandTotalAmountState, tableState, totalAmountState } from "./store/TableAtoms";
+import { balanceAmountState, grandTotalAmountState, tableState, totalAmountState } from "./store/TableAtoms";
 import { CustomerInfoAtom } from "./store/CustomerAtoms";
 import { discountAtom } from "./store/discoutAtom";
 import { DiscountEditComponent } from "./components/Discount/discount.edit.component";
@@ -27,6 +27,7 @@ function App() {
   const discount = useRecoilValue(discountAtom)
   const totalAmount = useRecoilValue(totalAmountState)
   const grandTotal = useRecoilValue(grandTotalAmountState)
+  const balanceAmout = useRecoilValue(balanceAmountState)
   const customer_data = useRecoilValue(CustomerInfoAtom)
 
   const [toggleOpen, setToggleOpen] = useState(false)
@@ -171,7 +172,7 @@ function App() {
 
                 <div className="justify-between grid grid-cols-3">
                   <div>
-                      <p>Shipping Charge</p>
+                      <p>Delivery Charge</p>
                   </div>
                   <div className="justify-center items-center">
                     <p>=</p>
@@ -182,9 +183,27 @@ function App() {
                   </div>
                 </div>
 
+               
+
                 <div className="justify-between grid grid-cols-3">
                   <div>
-                      <p>Discount paid</p>
+                      <p className="">
+                        Grand Total</p>
+                  </div>
+                  <div className="justify-center items-center">
+                    <p>=</p>
+                  </div>
+                  <div>
+                
+                  <p className="">AU$ {Number(grandTotal)}</p>
+
+                      
+                  </div>
+                </div>
+
+                <div className="justify-between grid grid-cols-3">
+                  <div>
+                      <p>Advance paid</p>
                   </div>
                   <div className="justify-center items-center">
                     <p>=</p>
@@ -194,22 +213,19 @@ function App() {
 
                   </div>
                 </div>
-
                 <div className="justify-between grid grid-cols-3">
                   <div>
-                      <p className="font-bold">
-                        Grand Total</p>
+                      <p>Balance amount</p>
                   </div>
                   <div className="justify-center items-center">
                     <p>=</p>
                   </div>
                   <div>
-                
-                  <p className="font-bold">AU$ {Number(grandTotal)}</p>
+                      {balanceAmout}
 
-                      
                   </div>
                 </div>
+                
                 
               </div>
           </div>
@@ -311,13 +327,13 @@ function App() {
               </div>
           </div>
 
-          <div className="p-4 grid grid-cols-2 text-lg">
+          <div className="py-6 grid grid-cols-2 text-lg">
               <div>
 
               </div>
               
               <div className="text-2xl">
-                <div className="justify-between grid grid-cols-3">
+                <div className="justify-between grid grid-cols-3 py-2">
                   <div>
                       <p>Total amount</p>
                   </div>
@@ -329,9 +345,9 @@ function App() {
                   </div>
                 </div>
 
-                <div className="justify-between grid grid-cols-3">
+                <div className="justify-between grid grid-cols-3 py-2">
                   <div>
-                      <p>Shipping Charge</p>
+                      <p>Delivery Charge</p>
                   </div>
                   <div className="justify-center items-center">
                     <p>=</p>
@@ -341,9 +357,24 @@ function App() {
                   </div>
                 </div>
 
-                <div className="justify-between grid grid-cols-3">
+                
+
+                <div className="justify-between grid grid-cols-3 py-2">
                   <div>
-                      <p>Discount paid</p>
+                      <p className="">
+                        Grand Total</p>
+                  </div>
+                  <div className="justify-center items-center">
+                    <p>=</p>
+                  </div>
+                  <div>
+                      <p className="">AU$ {Number(grandTotal)}</p>
+                  </div>
+                </div>
+
+                <div className="justify-between grid grid-cols-3 py-2">
+                  <div>
+                      <p>Advance paid</p>
                   </div>
                   <div className="justify-center items-center">
                     <p>=</p>
@@ -353,18 +384,19 @@ function App() {
                   </div>
                 </div>
 
-                <div className="justify-between grid grid-cols-3">
+                <div className="justify-between grid grid-cols-3 font-bold py-2">
                   <div>
-                      <p className="font-bold">
-                        Grand Total</p>
+                      <p>Balance amount</p>
                   </div>
                   <div className="justify-center items-center">
                     <p>=</p>
                   </div>
                   <div>
-                      <p className="font-bold">AU$ {Number(grandTotal)}</p>
+                      <p>AU$ {balanceAmout}</p>
                   </div>
                 </div>
+
+                
                 
               </div>
           </div>
