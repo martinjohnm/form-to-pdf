@@ -13,7 +13,7 @@ export const TableView = () => {
 
     return <div>
         {tableData.map(row => (
-            <TableSingleRow subtotal={row.subtotal} description={row.description} hsn={row.hsn} id={row.id} price={row.price} quantity={row.quantity} unit={row.unit}/>
+            <TableSingleRow subtotal={row.subtotal} description={row.description} item={row.item} id={row.id} price={row.price} quantity={row.quantity} unit={row.unit}/>
         ))}
     </div>
 }

@@ -33,7 +33,7 @@ const Field = ({title, value, type } : {title : string, value : string, type : I
                   ...prevcustomer,
                   invoiceNumber: String(e.target.value)
                 }));
-        } else if (type = "poNumber") {
+        } else if (type == "poNumber") {
             setInvoice((prevcustomer) => ({
               ...prevcustomer,
               poNumber: String(e.target.value)

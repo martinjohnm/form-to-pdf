@@ -8,7 +8,7 @@ import { CustomerInfoComponent } from "./components/Customer/Customer.Info.compo
 import { CustomerInfoEditComponent } from "./components/Customer/Customer.Info.Edit.Component";
 import { InvoiceEditComponent } from "./components/Invoice/InvoiceEditComponent";
 import { InvoiceComponent } from "./components/Invoice/InvoiceComponent";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { ShippingChargeAtom } from "./store/shippingAtoms";
 import { ShippingchargeEditComponent } from "./components/Shipping/ShippingChargeEditComponent";
 import { TableView } from "./components/Table/TableView";
@@ -22,7 +22,7 @@ import { DiscountEditComponent } from "./components/Discount/discount.edit.compo
 function App() {
 
   
-  const [_tableData, setTableData] = useRecoilState(tableState);
+  const setTableData = useSetRecoilState(tableState);
   const shiipingcharge = useRecoilValue(ShippingChargeAtom)
   const discount = useRecoilValue(discountAtom)
   const totalAmount = useRecoilValue(totalAmountState)
@@ -31,8 +31,9 @@ function App() {
 
   const [toggleOpen, setToggleOpen] = useState(false)
   const handleDownload = async () => {
-  const element : any  = document.getElementById("pdf-content");
+  const element : HTMLElement | null  = document.getElementById("pdf-content");
   
+  //@ts-expect-error nul
   const canvas = await html2canvas(element);
   const image = canvas.toDataURL("image/png");
 
@@ -59,13 +60,13 @@ function App() {
              
             </div>
     <div id="pdf-content" className={`text-black px-2 md:px-40 py-8`}>
-          <div className="md:justify-between md:flex">
+          <div className="md:justify-between md:flex items-center">
             <div className="w-full">
               <img className="h-36 w-58" src="logo.png" alt="" />
             </div>
             <div className="w-1/2 text-md">
-              <div className="flex justify-center items-center font-extrabold text-3xl">
-                Invoice
+              <div className="flex font-extrabold text-6xl mb-6">
+                INVOICE
               </div>
               <InvoiceEditComponent/>
             </div>
@@ -121,11 +122,11 @@ function App() {
                     </div>
                     <div className="w-18 bg-slate-700 grid grid-cols-12 text-xl justify-center items-center">
                         <div className="text-white col-span-3 w-full h-full border-r p-4">
-                          <p>Description</p>
+                          <p>Item</p>
                         </div>
 
                         <div className="text-white col-span-2 w-full h-full border-r p-4">
-                          <p>Type</p>
+                          <p>Description</p>
                         </div>
                         <div className="text-white col-span-2 w-full h-full border-r p-4">
                           <p>Price</p>
@@ -223,13 +224,16 @@ function App() {
       </div>
       
       <div id="pdf-content" className={`text-black px-40 py-8`}>
-          <div className="justify-between flex">
+          <div className="h-52">
+
+          </div>
+          <div className="justify-between flex items-center">
             <div className="w-full">
               <img className="h-36 w-58" src="logo.png" alt="" />
             </div>
             <div className="w-1/2 text-md">
-              <div className="flex justify-center items-center font-extrabold text-3xl">
-                Invoice
+              <div className="flex font-extrabold text-6xl mb-6">
+                INVOICE
               </div>
               <InvoiceComponent/>
             </div>
@@ -279,11 +283,11 @@ function App() {
               <div className="w-full border border-black">
                     <div className="w-18 bg-slate-700 grid grid-cols-12 text-xl justify-center items-center">
                         <div className="text-white col-span-3 w-full h-full border-r p-4">
-                          <p>Description</p>
+                          <p>Item</p>
                         </div>
 
                         <div className="text-white col-span-2 w-full h-full border-r p-4">
-                          <p>Type</p>
+                          <p>Description</p>
                         </div>
                         <div className="text-white col-span-2 w-full h-full border-r p-4">
                           <p>Price</p>
@@ -312,7 +316,7 @@ function App() {
 
               </div>
               
-              <div className="text-xl">
+              <div className="text-2xl">
                 <div className="justify-between grid grid-cols-3">
                   <div>
                       <p>Total amount</p>

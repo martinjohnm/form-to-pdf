@@ -16,7 +16,7 @@ export const SingleRow = atom<SinglTableRowType>({
     default : {
         id: Date.now(),
         description : "",
-        hsn : 0,
+        item : "",
         price: 0,
         quantity : 0,
         unit : "",

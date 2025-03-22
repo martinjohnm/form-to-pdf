@@ -37,7 +37,7 @@ export interface InvoiceType {
 export type TableRowType =   {
     id: number,
     description : string,
-    hsn : number,
+    item : string,
     price: number,
     quantity : number,
     unit : string,
@@ -47,7 +47,7 @@ export type TableRowType =   {
 export type SinglTableRowType =   {
     id: number,
     description : string,
-    hsn : number,
+    item : string,
     price: number,
     quantity : number,
     unit : string,

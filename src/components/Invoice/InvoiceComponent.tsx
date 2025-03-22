@@ -20,8 +20,8 @@ const Field = ({title, value } : {title : string, value : string}) => {
     
   
     return (
-      <div className="grid grid-cols-3 p-1 text-xl justify-center items-center">
-        <div className="col-span-1">
+      <div className="grid grid-cols-4 p-1 text-2xl justify-center items-center">
+        <div className="col-span-2">
             {`${title} :`}
         </div>
         <div className="col-span-2 gap-1 outline-none p-1">

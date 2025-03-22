@@ -1,4 +1,4 @@
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { tableState } from "../../store/TableAtoms";
 import { TableRowType } from "../../types";
 import { useState } from "react";
@@ -9,14 +9,14 @@ import { useState } from "react";
 
 export const TableSingleRowEdit = () => {
 
-    const [_tableData, setTableData] = useRecoilState(tableState);
+    const setTableData = useSetRecoilState(tableState);
 
 
     const [tableRow, setTableRow] = useState<TableRowType>(
         {
             id : Date.now(),
             description : "",
-            hsn : 0,
+            item : "",
             price : 0,
             quantity : 0,
             unit : "",
@@ -32,7 +32,7 @@ export const TableSingleRowEdit = () => {
         {
             id : tableRow.id,
             description : tableRow.description,
-            hsn : tableRow.hsn,
+            item : tableRow.item,
             price : tableRow.price,
             quantity : tableRow.quantity,
             unit : tableRow.unit,
@@ -56,19 +56,19 @@ export const TableSingleRowEdit = () => {
     return <div>
       <div className="grid grid-cols-12 border justify-center items-center">
                   <div className="text-black col-span-3 p-1">
-                    <input type="text" value={tableRow.description } onChange={(e : React.ChangeEvent<HTMLInputElement>) => {
+                    <input type="text" value={tableRow.item } onChange={(e : React.ChangeEvent<HTMLInputElement>) => {
                         setTableRow((tableRow) => ({
                             ...tableRow,
-                            description : String(e.target.value)
+                            item : String(e.target.value)
                         }))
                     }} className="w-full outline-none bg-slate-200 p-2" placeholder="Description" ></input>
                   </div>
       
                   <div className="text-black col-span-2 p-1">
-                    <input type="number" value={tableRow.hsn} onChange={(e : React.ChangeEvent<HTMLInputElement>) => {
+                    <input type="text" value={tableRow.description} onChange={(e : React.ChangeEvent<HTMLInputElement>) => {
                         setTableRow((tableRow) => ({
                             ...tableRow,
-                            hsn : Number(e.target.value)
+                            description : String(e.target.value)
                         }))
                     }} className="w-full outline-none bg-slate-200 p-2" placeholder="HSN" ></input>
                   </div>

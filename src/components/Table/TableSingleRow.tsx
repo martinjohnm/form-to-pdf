@@ -2,17 +2,17 @@ import { TableRowType } from "../../types"
 
 
 
-export const TableSingleRow = ( {description, hsn, id, quantity, price, unit,subtotal} :  TableRowType) => {
+export const TableSingleRow = ( {description, item, id, quantity, price, unit,subtotal} :  TableRowType) => {
 
 
 
-    return <div className="grid grid-cols-12 border justify-center items-center" key={id}>
+    return <div className="grid grid-cols-12 border justify-center items-center text-xl" key={id}>
     <div className="text-black col-span-3 w-full h-full border-r p-4">
-      <p className="break-words">{description}</p>
+      <p className="break-words">{item}</p>
     </div>
 
     <div className="text-black col-span-2 w-full break-words h-full border-r p-4">
-      <p>{hsn}</p>
+      <p>{description}</p>
     </div>
     <div className="text-black col-span-2 w-full break-words h-full border-r p-4">
       <p>{price}</p>
